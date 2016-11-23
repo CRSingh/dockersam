@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <style>
+        .city {
+            float: left;
+            margin: 10px;
+            padding: 10px;
+            max-width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        .msg {
+            float: left;
+            margin: 10px;
+            padding: 10px;
+            max-width: 300px;
+            height: 20px;
+           
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <script type="text/javascript">
+       
+     //   var imgItems = Array('./q1.png', './q2.png', './q3.png', './q4.png', './q5.png', './q6.png', './q7.png', './q8.png', './q9.png', './q10.png', './q11.png', './q12.png', './q13.png');
+
+        function parseDate(str) {
+            var mdy = str.split('/')
+            return new Date(mdy[2], mdy[0] - 1, mdy[1]);
+        }
+
+        function daydiff(first, second) {
+            return (second - first) / (1000 * 60 * 60 * 24)
+        }
+
+        function Calculate() {
+          
+                var d = new Date();
+
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+
+                var output = (('' + month).length < 2 ? '0' : '') + month + '/' +
+                    (('' + day).length < 2 ? '0' : '') + day + '/' + d.getFullYear();             
+
+              //  var randomImg = imgItems[Math.floor(Math.random() * imgItems.length)];
+
+               
+
+                $("#result").text( daydiff(parseDate(output), parseDate('12/22/2016')) + " Days to Go" );
+
+                // $("#result").text("Number of days between the dates shown are: " + daydiff(parseDate($('#first').val()), parseDate($('#second').val())));
+            // $('#image-zoom img').attr("src", randomImg);
+            //   $('#image-zoom').attr("src", randomImg);
+        }
+
+        window.onload = function () {
+            Calculate();
+        }
+
+
+    </script>
+
+</head>
+<body>
+       
+
+  
+
+        <h2>   <div id="result" class="msg"></div></h2>
+   
+  //  <img id="image-zoom" class="city" src="" alt="dental">
+    
+</body>
+</html>
